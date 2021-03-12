@@ -6,16 +6,43 @@
 trigger:
 - master
 
-variables:
-  # Azure service connection established during pipeline creation
-  azureSubscription: a154f64f-3636-48a3-9fe0-ebe6d07f473a
-  appName: rmx21
-  # Agent VM image name
-  vmImageName: 'ubuntu-latest'
+trigger:
+- none
 
-- task: AzureWebApp@1 # Add this at the end of your file
+pool:
+  vmImage: 'ubuntu-latest'
+
+steps:
+- task: NodeTool@0
   inputs:
-    azureSubscription: ws-devops
-    appType: webAppLinux
-    appName: $(appName)
-    package: $(System.ArtifactsDirectory)/**/*
+    versionSpec: '12.x'
+  displayName: 'Install Node.js'
+
+- script: |
+    npm install
+    npm run build
+  displayName: 'npm install and build'
+
+- script: |
+    npm pack
+  displayName: 'Package for npm release'
+
+- task: CopyFiles@2
+  inputs:
+    sourceFolder: '$(Build.SourcesDirectory)'
+    contents: '*.tgz' 
+    targetFolder: $(Build.ArtifactStagingDirectory)/npm
+  displayName: 'Copy npm package'
+
+- task: CopyFiles@2
+  inputs:
+    sourceFolder: '$(Build.SourcesDirectory)'
+    contents: 'package.json' 
+    targetFolder: $(Build.ArtifactStagingDirectory)/npm
+  displayName: 'Copy package.json'
+
+- task: PublishBuildArtifacts@1
+  inputs:
+    pathtoPublish: '$(Build.ArtifactStagingDirectory)/npm'
+    artifactName: npm
+  displayName: 'Publish npm artifact'
