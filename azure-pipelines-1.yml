@@ -13,7 +13,6 @@ variables:
   # Agent VM image name
   vmImageName: 'ubuntu-latest'
 
-steps:
 - task: AzureWebApp@1 # Add this at the end of your file
   inputs:
     azureSubscription: ws-devops
