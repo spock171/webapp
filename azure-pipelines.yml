@@ -13,7 +13,7 @@ pool:
 steps:
 - task: AzureCLI@2
   inputs:
-    azureSubscription: 'ws-devops'
+    azureSubscription: ws-devops
     scriptType: 'bash'
     scriptLocation: 'inlineScript'
     inlineScript: |
