@@ -16,4 +16,4 @@ steps:
     scriptType: 'bash'
     scriptLocation: 'inlineScript'
     inlineScript: |
-      az appservice plan create -g MyResourceGroup -n MyPlan --is-linux --number-of-workers 1 --sku F1
+      az appservice plan create -g ws-devops -n MyPlan --is-linux --number-of-workers 1 --sku F1
