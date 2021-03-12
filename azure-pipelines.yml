@@ -13,8 +13,8 @@ pool:
 steps:
 - task: AzureCLI@2
   inputs:
-    azureSubscription: 'Learning & Development(a154f64f-3636-48a3-9fe0-ebe6d07f473a)'
+    azureSubscription: 'ws-devops'
     scriptType: 'bash'
     scriptLocation: 'inlineScript'
     inlineScript: |
-      az appservice plan create -g ws-devops -n MyPlan --is-linux --number-of-workers 1 --sku F1
+      az appservice plan create -g ws-devops -n webapp22 --is-linux --number-of-workers 1 --sku F1
