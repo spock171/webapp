@@ -13,7 +13,7 @@ pool:
 steps:
 - task: AzureCLI@2
   inputs:
-    azureSubscription: ws-devops
+    azureSubscription: Learning & Development(a154f64f-3636-48a3-9fe0-ebe6d07f473a)
     scriptType: 'bash'
     scriptLocation: 'inlineScript'
     inlineScript: |
