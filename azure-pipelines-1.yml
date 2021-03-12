@@ -1,0 +1,22 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+trigger:
+- main
+
+variables:
+  # Azure service connection established during pipeline creation
+  azureSubscription: a154f64f-3636-48a3-9fe0-ebe6d07f473a
+  appName: rmx21
+  # Agent VM image name
+  vmImageName: 'ubuntu-latest'
+
+steps:
+- task: AzureWebApp@1 # Add this at the end of your file
+  inputs:
+    azureSubscription: ws-devops
+    appType: webAppLinux
+    appName: $(appName)
+    package: $(System.ArtifactsDirectory)/**/*
