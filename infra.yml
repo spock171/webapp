@@ -18,4 +18,4 @@ steps:
     scriptLocation: 'inlineScript'
     inlineScript: |
       az appservice plan create -g ws-devops -n webapp22 --is-linux --number-of-workers 1 --sku F1
-      az webapp create -g webapp22 -p ws-devops -n webapp22 --runtime "node|10.14"
+      az webapp create -g ws-devops -p ws-devops -n webapp222 --runtime "node|10.14"
