@@ -1,0 +1,21 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+trigger:
+- master
+
+pool:
+  vmImage: ubuntu-latest
+
+steps:
+
+- task: AzureRmWebAppDeployment@4
+  inputs:
+    ConnectionType: 'AzureRM'
+    azureSubscription: 'ws-devops'
+    appType: 'webApp'
+    WebAppName: 'webapp22'
+    VirtualApplication: 'webapp2afsd22'
+    packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.zip'
