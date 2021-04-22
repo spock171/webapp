@@ -19,4 +19,5 @@ jobs:
       uses: azure/CLI@v1
       with:
         inlineScript: |
-          az account show
+          az appservice plan create -g ${{ secrets.rg }} -n ${{ secrets.asp }} --is-linux --number-of-workers 1 --sku B1
+          az webapp create -g $(rg) -p ${{ secrets.asp }} -n ${{ secrets.webapp }}  --runtime "node|10.14"
