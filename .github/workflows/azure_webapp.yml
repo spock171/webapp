@@ -1,7 +1,8 @@
 
 # File: .github/workflows/workflow.yml
 
-on: [pull_request]
+on: 
+  workflow_dispatch:
 
 name: app
 
