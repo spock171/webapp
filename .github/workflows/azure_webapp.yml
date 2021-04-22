@@ -38,4 +38,4 @@ jobs:
       uses: azure/webapps-deploy@v2
       with:
         app-name: ${{ secrets.webapp }}
-        package:  ${{ github.workspace }}/app
+        package:  ${{ github.workspace }}
