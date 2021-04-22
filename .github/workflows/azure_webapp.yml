@@ -11,6 +11,9 @@ jobs:
     - name: 'Checkout Github Action' 
       uses: actions/checkout@master
 
+    - name:  'ls'
+      run: |
+           ls -l
     - name: Setup Node 10.x
       uses: actions/setup-node@v1
       with:
