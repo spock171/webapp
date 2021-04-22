@@ -14,19 +14,21 @@ jobs:
     - name: 'Checkout Github Action' 
       uses: actions/checkout@master
 
-    - name:  'ls'
-      run: |
-           ls -l
-           pwd
     - name: Setup Node 10.x
       uses: actions/setup-node@v1
       with:
         node-version: '10.x'
+
     - name: 'npm install, build, and test'
       run: |
         npm install
         npm --prefix /app build --if-present
         npm --prefix /app run test --if-present
+    
+    - name:  'ls'
+      run: |
+           cd app
+           ls -ltr
     
     - name: Azure Login
       uses: azure/login@v1
