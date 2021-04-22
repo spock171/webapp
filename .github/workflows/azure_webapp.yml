@@ -17,6 +17,7 @@ jobs:
     - name:  'ls'
       run: |
            ls -l
+           pwd
     - name: Setup Node 10.x
       uses: actions/setup-node@v1
       with:
@@ -26,9 +27,14 @@ jobs:
         npm install
         npm --prefix /app build --if-present
         npm --prefix /app run test --if-present
+    
+    - name: Azure Login
+      uses: azure/login@v1
+      with:
+        creds: ${{ secrets.AZURE_CREDENTIALS }}
 
     - name: 'Run Azure webapp deploy action using publish profile credentials'
       uses: azure/webapps-deploy@v2
       with:
         app-name: ${{ secrets.webapp }}
-        publish-profile: ${{ secrets.AZURE_CREDENTIALS }}
+        package: ${{ env.GITHUB_WORKSPACE }} /app
