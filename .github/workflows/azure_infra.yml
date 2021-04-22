@@ -2,8 +2,6 @@
 
 on: [pull_request]
 
-name: AzureCLISample
-
 jobs:
 
   build-and-deploy:
