@@ -30,7 +30,7 @@ jobs:
       with:
         creds: ${{ secrets.AZURE_CREDENTIALS }}
 
-    - name: 'Run Azure webapp deploy action using publish profile credentials'
+    - name: 'Azure webapp deploy'
       uses: azure/webapps-deploy@v2
       with:
         app-name: ${{ secrets.webapp }}
