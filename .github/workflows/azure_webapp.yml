@@ -23,9 +23,8 @@ jobs:
       run: |
         cd app
         npm install
-        npm build --if-present
+        npm run build --if-present
         npm run test --if-present
-        ls -ltr
 
     - name: Azure Login
       uses: azure/login@v1
