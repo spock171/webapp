@@ -13,11 +13,7 @@ jobs:
     # checkout the repo
     - name: 'Checkout Github Action' 
       uses: actions/checkout@master
-    
-    - name:  'Move app source code'
-      run: |
-        mv app/* ../
-
+      
     - name: Setup Node 10.x
       uses: actions/setup-node@v1
       with:
@@ -25,6 +21,7 @@ jobs:
 
     - name: 'npm install, build, and test'
       run: |
+        cd app
         npm install
         npm build --if-present
         npm run test --if-present
@@ -32,7 +29,7 @@ jobs:
     - name: Azure Login
       uses: azure/login@v1
       with:
-        creds: ${{ secrets.AZURE_CREDENTIALS }}
+        creds: ${{ secrets.AZURE_CREDENTIALS }}/app
 
     - name: 'Azure webapp deploy'
       uses: azure/webapps-deploy@v2
