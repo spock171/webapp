@@ -24,12 +24,7 @@ jobs:
         npm install
         npm --prefix /app build --if-present
         npm --prefix /app run test --if-present
-    
-    - name:  'ls'
-      run: |
-           cd app
-           ls -ltr
-    
+
     - name: Azure Login
       uses: azure/login@v1
       with:
@@ -39,4 +34,4 @@ jobs:
       uses: azure/webapps-deploy@v2
       with:
         app-name: ${{ secrets.webapp }}
-        package: ${{ env.GITHUB_WORKSPACE }} /app
+        package:  ${{ github.workspace }}/app
