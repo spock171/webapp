@@ -1,0 +1,6 @@
+{
+"clientId": "d8950f8e-e8ba-4aed-a305-2b37082c08ad",
+"clientSecret": "LnANXCX.~5St8FXDtR5zm5_vmMOQQQunf_",
+"subscriptionId": "a154f64f-3636-48a3-9fe0-ebe6d07f473a",
+"tenantId": "475de339-34fc-4cdf-b8c7-8efff15e88b0"
+}
