@@ -22,11 +22,3 @@ jobs:
         inlineScript: |
           az appservice plan create -g ${{ secrets.rg }} -n ${{ secrets.asp }} --is-linux --number-of-workers 1 --sku B1
           az webapp create -g ${{ secrets.rg }} -p ${{ secrets.asp }} -n ${{ secrets.webapp }}  --runtime "node|10.14"
-
-
-{
-"clientId": "d8950f8e-e8ba-4aed-a305-2b37082c08ad",
-"clientSecret": "LnANXCX.~5St8FXDtR5zm5_vmMOQQQunf_",
-"subscriptionId": "a154f64f-3636-48a3-9fe0-ebe6d07f473a",
-"tenantId": "475de339-34fc-4cdf-b8c7-8efff15e88b0"
-}
